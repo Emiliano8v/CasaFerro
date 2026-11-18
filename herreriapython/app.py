@@ -1,3 +1,4 @@
+
 from flask import Flask, render_template_string, url_for
 
 app = Flask(__name__)
@@ -313,12 +314,54 @@ HTML = """
             max-width: 600px;
         }
 
+        /* BOTONES DE REDES SOCIALES */
+
+        .redes-sociales {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 18px;
+            margin-top: 35px;
+        }
+
+        .red {
+            display: inline-block;
+            padding: 15px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .social-whatsapp {
+            background: #25D366;
+        }
+
+        .social-facebook {
+            background: #1877F2;
+        }
+
+        .social-correo {
+            background: #f28c28;
+        }
+
+        .red:hover {
+            transform: translateY(-5px);
+            opacity: 0.85;
+        }
+
         footer {
             text-align: center;
             padding: 25px;
             background: #080909;
             color: #888;
             font-size: 13px;
+        }
+
+        footer p {
+            margin: 5px;
         }
 
         @media(max-width: 800px) {
@@ -348,6 +391,15 @@ HTML = """
 
             .titulo h2 {
                 font-size: 30px;
+            }
+
+            .redes-sociales {
+                flex-direction: column;
+            }
+
+            .red {
+                width: 100%;
+                max-width: 280px;
             }
         }
     </style>
@@ -509,10 +561,35 @@ HTML = """
         nuestro trabajo.
     </p>
 
+    <div class="redes-sociales">
+
+        <a href="https://wa.me/527774796793"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="red social-whatsapp">
+            WhatsApp: 777 479 6793
+        </a>
+
+        <a href="https://www.facebook.com/share/19ma1MKfNL/"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="red social-facebook">
+            Visítanos en Facebook
+        </a>
+
+        <a href="mailto:osoriorigoberto95@gmail.com"
+           class="red social-correo">
+            Enviar correo electrónico
+        </a>
+
+    </div>
+
 </section>
 
 <footer>
-    © 2026 Casa Ferro | Herrería en general
+    <p>© 2026 Casa Ferro | Herrería en general</p>
+    <p>Teléfono: 777 479 6793</p>
+    <p>Correo: osoriorigoberto95@gmail.com</p>
 </footer>
 
 </body>
@@ -527,3 +604,4 @@ def inicio():
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
+
